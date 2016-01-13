@@ -3,7 +3,7 @@
 #define MAXBIT 30
 #define	MAXDIM 6
 
-void sobseq(int *n, float x[]) {
+void sobseq(int *n, float *x) {
 	int j, k, l;
 	unsigned long i, im, ipp;
 
@@ -44,7 +44,7 @@ void sobseq(int *n, float x[]) {
 			}
 		}
 
-	} 
+	}
 	else {
 		im = in++;
 		
