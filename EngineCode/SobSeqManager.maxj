@@ -4,6 +4,7 @@ import com.maxeler.maxcompiler.v2.build.EngineParameters;
 import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
 import com.maxeler.maxcompiler.v2.managers.standard.Manager;
 import com.maxeler.maxcompiler.v2.managers.standard.Manager.IOType;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.CPUTypes;
 
 public class SobSeqManager {
 

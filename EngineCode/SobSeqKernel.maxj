@@ -9,25 +9,23 @@ import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
 
 class ComplexCounterKernel extends Kernel {
 
-	private static final int width = 32;
-
 	ComplexCounterKernel(KernelParameters parameters,
 		int countOneMax, int countOneInc, int countTwoMax) {
 		super(parameters);
 
-		DFEVar ix = io.input("ix", uLong);
-		DFEVar iv = io.input("iv", uLong);
-		DFEVar fac = io.scalarInput("fac", uFloat);
+		DFEVar ix = io.input("ix", dfeUInt);
+		DFEVar iv = io.input("iv", dfeUInt);
+		DFEVar fac = io.scalarInput("fac", dfeFloat(8,24));
 
 		/*
 			ix[k] ^= iv[im+k];
 			x[k] = ix[k] * fac;
 		*/
-		DFEVar ixOut ^= iv; 
+		DFEVar ixOut = ixOut ^ iv; 
 		DFEVar x = ix * fac;
 
-		io.output("ixOut", ixOut, type);
-		io.output("x", x, type);
+		io.output("ixOut", ixOut, dfeUInt);
+		io.output("x", x, dfeFloat(8,24));
 	}
 }
 
